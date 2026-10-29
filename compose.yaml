@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DEMO_MODE: "1" # LOCAL ONLY: hardcoded keys; disable before deployment
+      DATABASE_PATH: /app/data/opspilot.db
+    volumes:
+      - opspilot_data:/app/data
+volumes:
+  opspilot_data:

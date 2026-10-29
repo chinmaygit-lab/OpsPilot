@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="OpsPilot: multi-tenant agent operations control plane" />
+  <title>OpsPilot · Agent Operations Control Plane</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">◈</div><div><b>OpsPilot</b><small>AGENT CONTROL PLANE</small></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav aria-label="Primary navigation">
+        <a href="#overview" class="active">▦ <span>Overview</span></a>
+        <a href="#tasks">☑ <span>Work queue</span></a>
+        <a href="#agent">✧ <span>Agent workspace</span></a>
+        <a href="#integrations">⇄ <span>Integrations</span></a>
+        <a href="#governance">◇ <span>Approvals & audit</span></a>
+      </nav>
+      <div class="sidebar-bottom"><div class="live-dot"></div><div><strong>Local pilot</strong><small>Tenant-aware · auditable</small></div></div>
+    </aside>
+    <main>
+      <header class="topbar"><div><span class="eyebrow">OPERATIONS / WORKSPACE</span><h1>Operations overview</h1></div><div class="top-right"><span id="connection" class="connection">● Disconnected</span><span id="identity" class="identity">No workspace</span></div></header>
+      <div class="content">
+        <section class="authbar" aria-label="Workspace login">
+          <div><strong>Connect your workspace</strong><p>Enter a tenant-scoped API key. In local demo mode, use <code>demo-acme-owner</code> or <code>demo-acme-viewer</code>.</p></div>
+          <div class="authinputs"><input id="apiKey" type="password" placeholder="X-API-Key" autocomplete="off" aria-label="API key"><button id="connect" class="button primary">Connect</button><button id="disconnect" class="button ghost">Clear</button></div>
+        </section>
+        <div id="alert" class="alert" role="status" aria-live="polite"></div>
+        <section id="overview" class="section">
+          <div class="section-head"><div><span class="eyebrow">LIVE OPERATIONS</span><h2>Workspace pulse</h2></div><span class="subtle">WebSocket snapshots · every 2 seconds</span></div>
+          <div class="metrics">
+            <article class="metric"><span>All tasks</span><strong id="metric-total">—</strong><small>Tracked operations</small></article>
+            <article class="metric"><span>Open tasks</span><strong id="metric-open">—</strong><small>Require attention</small></article>
+            <article class="metric"><span>Ingested events</span><strong id="metric-events">—</strong><small>Deduplicated by source</small></article>
+            <article class="metric"><span>Awaiting approval</span><strong id="metric-approvals">—</strong><small>Human-in-the-loop</small></article>
+          </div>
+          <div class="two-col">
+            <article class="panel"><div class="panel-title"><h3>Task status distribution</h3><span>Current tenant</span></div><div id="status-bars" class="bar-list"><p class="placeholder">Connect to see metrics</p></div></article>
+            <article class="panel"><div class="panel-title"><h3>Priority signals</h3><span>Latest state</span></div><div id="priority-bars" class="bar-list"><p class="placeholder">Connect to see metrics</p></div></article>
+          </div>
+        </section>
+        <section id="tasks" class="section">
+          <div class="section-head"><div><span class="eyebrow">WORK MANAGEMENT</span><h2>Work queue</h2></div><button id="export" class="button ghost">Download CSV</button></div>
+          <form id="taskForm" class="inline-form"><input id="taskTitle" maxlength="180" required placeholder="Describe a new task" aria-label="Task title"><select id="taskPriority"><option value="normal">Normal</option><option value="high">High</option><option value="urgent">Urgent</option></select><button class="button primary" type="submit">+ Create task</button></form>
+          <article class="panel table-panel"><div class="panel-title"><h3>Recent tasks</h3><span id="tasksCount">0 items</span></div><div class="table-scroll"><table><thead><tr><th>Task</th><th>Priority</th><th>Status</th><th>Source</th><th>Action</th></tr></thead><tbody id="taskRows"><tr><td colspan="5" class="placeholder">No tasks loaded</td></tr></tbody></table></div></article>
+        </section>
+        <section id="agent" class="section">
+          <div class="section-head"><div><span class="eyebrow">AGENT SYSTEM</span><h2>Agent workspace</h2></div><span class="mini-pill">Permission-gated tools</span></div>
+          <div class="two-col agent-grid"><article class="panel"><h3>Run the agent team</h3><p class="muted">The Insight Agent analyzes current data, the Planner creates a bounded read-only plan, and the Tool Executor runs registered tools. Writes always require your explicit action.</p><form id="agentForm"><textarea id="objective" rows="3" maxlength="240" placeholder="Example: Summarize the most important work in this workspace" required></textarea><button class="button primary" type="submit">✧ Run agents</button></form></article><article class="panel"><div class="panel-title"><h3>Agent result</h3><span>Audited execution</span></div><pre id="agentResult" class="json-output">Run an objective to see the agent plan and results.</pre></article></div>
+        </section>
+        <section id="integrations" class="section"><div class="section-head"><div><span class="eyebrow">OMNI-TOOL LAYER</span><h2>Integrations</h2></div><span class="mini-pill">Cursor-based sync</span></div><article class="panel"><div class="panel-title"><div><h3>Connector registry</h3><p class="muted">The demo ticket connector retrieves five sample events in paginated batches, with cursor checkpoints and idempotent event ingestion.</p></div><div class="inline-form"><button id="addIntegration" class="button primary">+ Demo connector</button><button id="addCsvIntegration" class="button ghost">+ CSV source</button><input id="csvFile" type="file" accept=".csv,text/csv" hidden></div></div><div id="integrationsList" class="integration-list"><p class="placeholder">Connect to load integrations</p></div></article></section>
+        <section id="governance" class="section"><div class="section-head"><div><span class="eyebrow">TRUST & CONTROL</span><h2>Approvals and audit</h2></div><button id="reloadGovernance" class="button ghost">Refresh</button></div><div class="two-col"><article class="panel"><h3>Pending human approvals</h3><div id="approvalsList" class="approval-list"><p class="placeholder">Owner access required</p></div></article><article class="panel"><h3>Recent tool activity</h3><div id="auditList" class="audit-list"><p class="placeholder">Owner access required</p></div></article></div></section>
+        <footer>OpsPilot 0.1 · Independent engineering prototype · Not affiliated with Mercor</footer>
+      </div>
+    </main>
+  </div>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

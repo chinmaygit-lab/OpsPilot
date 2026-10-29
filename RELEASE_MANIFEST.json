@@ -1,0 +1,131 @@
+{
+  "name": "OpsPilot Agent Operations Platform",
+  "version": "0.1.0",
+  "date": "2026-10-29",
+  "verification": {
+    "pytest": "16 passed",
+    "wheel_build": "passed",
+    "python_compile": "passed",
+    "javascript_syntax": "passed",
+    "browser_visual": "blocked by environment",
+    "mcp_interoperability": "not tested"
+  },
+  "files": [
+    {
+      "path": ".agents/TEAM.md",
+      "sha256": "ddc06df6e04f49c372cfc6e5127ab54b3f80d614f4d6d06e5d87bb9449fb3592"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "ede199d756118dd9fc9c8e5558f917feb27bd70dc9004a4bf4afb26cdc9de9c1"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "a8bc44404686ff5e3484fc4f652aba57a4d87ad5fb312ad2bee72e48f161ca6a"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "f9b0e9e21220a25cff2eaeca1b7ce8eceedabb25e98ca77a03d36786bf33cdb6"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "92002314a15925d47dc50c0d088b682bba60331e5246f7e0a83a6f47a880eb0d"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b608ce68b77340bfca0d58bd0e13e6a45a63b872e86e3e4d3a68c4420d47c27d"
+    },
+    {
+      "path": "VERIFICATION.md",
+      "sha256": "46baed701639325c83be2e3492b21133eece814804250493373244e5f3cc5d95"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "f6f20c11ad5ac64b210774b7c4679fd3d3d065f727a8b58b5211f8361fc2c412"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "d9e7ef249e5739dce7517c11baab2afce7b3726ea3e3adae8acb37284a5111cc"
+    },
+    {
+      "path": "docs/GITHUB_PUBLISH.md",
+      "sha256": "3e4ff50610b0b26980760331bb6ebe92d625bc43100b9abd8c26744cdb713dfc"
+    },
+    {
+      "path": "docs/PILOT_CHECKLIST.md",
+      "sha256": "50c3c9718a8ac179a3ee8cc35944447eb30cc8d25af62807b60a299c142d5b2f"
+    },
+    {
+      "path": "opspilot/__init__.py",
+      "sha256": "b92ba231fe790fca83c4222e8073e97bcb206f86129fdebcedcc51f68a1f1a8d"
+    },
+    {
+      "path": "opspilot/agents.py",
+      "sha256": "7b5b73ddbd97efabf8cb24c6fdf4aa92a9bc888e76b0f0b9030218b0928d517c"
+    },
+    {
+      "path": "opspilot/api.py",
+      "sha256": "6b448d44699bad0ae08be3e952179f9acd64d5d9995e25ba7f137aca6cb2ba9e"
+    },
+    {
+      "path": "opspilot/connectors.py",
+      "sha256": "539815aec620c672b6ed02c919f11f0cfbca120a4204f6096d063bf4c29b0e78"
+    },
+    {
+      "path": "opspilot/db.py",
+      "sha256": "72fd68270b81611931a4e6ee17ac3496e145a2f70db5fcaf30fae84c5ba0de3c"
+    },
+    {
+      "path": "opspilot/manage.py",
+      "sha256": "ce81f974f69e9dd8f49e2682dd4461e558d0b48cd2d1d96c6446dd4ed1ce5484"
+    },
+    {
+      "path": "opspilot/mcp_server.py",
+      "sha256": "b27fc540c4ccea7ee0c9ddfb0b415c30d56baf600a94f45b0bafe4fd098d2b22"
+    },
+    {
+      "path": "opspilot/services.py",
+      "sha256": "67825fa27a4ab84d90f4b5252b298bb8cd62abb2df0d4d79d7d4256e97348864"
+    },
+    {
+      "path": "opspilot/static/app.js",
+      "sha256": "e9c340c0fd7646781c1ba44f3bb30ab3d1f966b4d130541cede1abb816c8f98d"
+    },
+    {
+      "path": "opspilot/static/index.html",
+      "sha256": "c684baa3f70f901fad85a731b38e8a00e8e367ef5cd25ad89e054af4521a0231"
+    },
+    {
+      "path": "opspilot/static/styles.css",
+      "sha256": "f9dc10f9ff3afdd77f7c912bf38b941533a436163ef295cd7b6aea7fad0dea63"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "d1dd085befcffdc89239049667f1b932edd5af2929ce17de1b926c45230f47fd"
+    },
+    {
+      "path": "samples/spreadsheet_tasks.csv",
+      "sha256": "a70632a07f18fbc8539ae6d2c25f7f91f86d92c925e3cf1a43454e35e6738cce"
+    },
+    {
+      "path": "scripts/send_webhook.py",
+      "sha256": "7fc967bc92e3fd99cc38328cfbbd26aca4f0284ef85cfa3768c31c3fa819153b"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "724205b2d18d4051737db439a8c40c10bea864dc8cce1432c6c27686e09cef0c"
+    },
+    {
+      "path": "tests/test_api.py",
+      "sha256": "463bf0179b688e96aa26ce4afa08ff46cfeab1f8ad5c535344af77e508c4d0ec"
+    },
+    {
+      "path": "tests/test_more_security.py",
+      "sha256": "f20c3e179bcc99fdcc12cf0ce00d9cd124d3e906a087bb15261d1b88568de898"
+    },
+    {
+      "path": "tests/test_services.py",
+      "sha256": "3649d656fd5ff183f9e084472394fd993fe03104d258373ee9c98d7a399b3d15"
+    }
+  ]
+}

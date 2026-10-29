@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.egg-info/
+build/
+dist/
+data/
+.env
+.coverage
+
+# Never publish local credentials, state or downloaded data
+*.db
+*.sqlite
+*.sqlite3
+.env.*
+*.pem
+*.p12
+*.key
+*.bak
+.DS_Store

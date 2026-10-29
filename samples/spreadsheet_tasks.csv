@@ -1,0 +1,4 @@
+external_id,title,severity
+spread-001,Process supplier invoices,normal
+spread-002,Investigate delayed customer migration,high
+spread-003,Resolve critical authentication outage,critical
