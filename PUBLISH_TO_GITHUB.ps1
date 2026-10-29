@@ -97,7 +97,7 @@ try {
     }
 
     Write-Host '=== Publish PUBLIC repository ===' -ForegroundColor Cyan
-    $CurrentBranch = (& git branch --show-current).Trim()
+    $CurrentBranch = ((& git symbolic-ref HEAD) -replace "^refs/heads/", "").Trim()
     Check-Last 'Current Git branch'
     if (-not $CurrentBranch) { throw 'No Git branch to push.' }
     $Remotes = @(& git remote)
